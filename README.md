@@ -30,11 +30,11 @@ pip install yt-dlp
 3. Ajoutez le chemin vers le dossier bin de FFmpeg à la variable d'environnement PATH.
 
 #### Instructions pour ajouter FFmpeg au PATH (Windows) :
-1. Extrayez les fichiers téléchargés dans un dossier, par exemple C:\ffmpeg.
+1. Extrayez les fichiers téléchargés dans un dossier, par exemple `C:\ffmpeg`.
 2. Ouvrez le Panneau de configuration, allez dans Système et sécurité > Système > Paramètres système avancés.
 3. Cliquez sur Variables d'environnement.
 4. Dans la section Variables système, trouvez la variable Path, sélectionnez-la et cliquez sur Modifier.
-5. Ajoutez le chemin complet vers le dossier bin de FFmpeg (par exemple, C:\ffmpeg\bin) et cliquez sur `OK`.
+5. Ajoutez le chemin complet vers le dossier bin de FFmpeg (par exemple, `C:\ffmpeg\bin`) et cliquez sur `OK`.
 
 #### Instructions pour ajouter FFmpeg au PATH (Linux) :
 1. Extrayez les fichiers téléchargés dans un dossier, par exemple `~/ffmpeg`.
@@ -65,8 +65,9 @@ python youtube_download.py
 ### Exemple
 Voici un exemple de session d'utilisation du script :
 ```sh
+python youtube_download.py 
 Entrez l'URL de la vidéo Youtube: https://www.youtube.com/watch?v=example
-Entrez le dossier de téléchargement 
+Entrez le dossier de téléchargement
 (Windows: C:\Users\votre_nom\Videos\ ou C:\Users\votre_nom\Download\ 
 Linux: /home/votre_nom/Videos/ ou /home/votre_nom/Téléchargements/): /home/user/Videos/
 Formats disponibles:
@@ -77,7 +78,7 @@ Formats disponibles:
 Entrez le numéro du format de la vidéo que vous voulez : 3
 Téléchargement terminé!
 ```
-Ne faites pas attention au fichier audio :
+Ne faites pas attention au format audio :
 ```sh
 4. 140 - m4a - audio only - 0fps
 ```
