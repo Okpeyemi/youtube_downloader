@@ -64,14 +64,14 @@ python youtube_download.py
 
 ### Exemple
 Voici un exemple de session d'utilisation du script :
->Entrez l'URL de la vidéo Youtube: https://www.youtube.com/watch?v=example  
->Entrez le dossier de téléchargement (Windows: C:\Users\votre_nom\Videos\ ou C:\Users\votre_nom\Download\ | Linux: /home/votre_nom/Videos/ ou /home/votre_nom/Téléchargements/): /home/user/Videos/  
+>Entrez l'URL de la vidéo Youtube: `https://www.youtube.com/watch?v=example`  
+>Entrez le dossier de téléchargement (Windows: `C:\Users\votre_nom\Videos\` ou `C:\Users\votre_nom\Download\` | Linux: `/home/votre_nom/Videos/` ou `/home/votre_nom/Téléchargements/`): `/home/user/Videos/`  
 >Formats disponibles:
 >1. 18 - mp4 - 360p - 30fps
 >2. 22 - mp4 - 720p - 30fps
 >3. 137 - mp4 - 1080p - 30fps
 >4. 140 - m4a - audio only - 0fps  
-
+>
 >Entrez le numéro du format de la vidéo que vous voulez : 3  
 >Téléchargement terminé!  
 
