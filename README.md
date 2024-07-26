@@ -71,6 +71,7 @@ Voici un exemple de session d'utilisation du script :
 >2. 22 - mp4 - 720p - 30fps
 >3. 137 - mp4 - 1080p - 30fps
 >4. 140 - m4a - audio only - 0fps  
+
 >Entrez le numéro du format de la vidéo que vous voulez : 3  
 >Téléchargement terminé!  
 
