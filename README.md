@@ -1,81 +1,160 @@
 # 📥 YouTube Downloader
 
-Ce script permet de lister les formats disponibles d'une vidéo YouTube et de télécharger le format souhaité.
+Script CLI en Python pour lister les formats disponibles d’une vidéo YouTube et télécharger le format souhaité avec fusion audio/vidéo via FFmpeg.
 
-## Prérequis
+---
 
-- Python 3.x doit être installé sur votre machine.
-- `yt-dlp` doit être installé pour gérer le téléchargement des vidéos.
-- FFmpeg doit être installé et configuré dans le PATH de votre système.
+## 🚀 Fonctionnalités
 
-## Installation
+- Liste les formats disponibles (résolutions courantes et pistes audio)
+- Sélection du format par numéro (interface en ligne de commande)
+- Fusion automatique de la meilleure piste audio avec la vidéo choisie
+- Sortie en MP4 (via FFmpeg)
+- Création d’un sous-dossier “Youtube_Downloader” dans le répertoire de destination
 
-### Étape 1 : Clonez le dépôt
+---
 
-Clonez ce dépôt sur votre machine locale :
-```sh
+## 📦 Prérequis
+
+- Python 3.x installé
+- yt-dlp installé
+- FFmpeg installé et disponible dans le PATH
+
+---
+
+## 🔧 Installation
+
+1) Cloner le dépôt
+```bash
 git clone git@github.com:Okpeyemi/youtube_downloader.git
 cd youtube_downloader
 ```
-### Étape 2 : Installez les dépendances nécessaires
 
-Installez `yt-dlp` via pip :
-```sh
+2) Installer la dépendance Python
+```bash
 pip install yt-dlp
 ```
 
-### Étape 3 : Téléchargez et installez FFmpeg
-1. Rendez-vous sur le repo "BtbN/FFmep-Builds" officiel de [FFmpeg](https://github.com/BtbN/FFmpeg-Builds/releases) et téléchargez la version récente et correspondante à votre système d'exploitation.
-2. Extrayez les fichiers téléchargés.
-3. Ajoutez le chemin vers le dossier bin de FFmpeg à la variable d'environnement PATH.
+3) Installer FFmpeg
 
-#### Instructions pour ajouter FFmpeg au PATH (Windows) :
-1. Extrayez les fichiers téléchargés dans un dossier, par exemple `C:\ffmpeg`.
-2. Ouvrez le Panneau de configuration, allez dans Système et sécurité > Système > Paramètres système avancés.
-3. Cliquez sur Variables d'environnement.
-4. Dans la section Variables système, trouvez la variable Path, sélectionnez-la et cliquez sur Modifier.
-5. Ajoutez le chemin complet vers le dossier bin de FFmpeg (par exemple, `C:\ffmpeg\bin`) et cliquez sur `OK`.
+- Windows:
+  - Téléchargez un build récent depuis la page officielle des releases: https://github.com/BtbN/FFmpeg-Builds/releases
+  - Extrayez par exemple vers C:\ffmpeg
+  - Ajoutez C:\ffmpeg\bin à la variable d’environnement PATH
 
-#### Instructions pour ajouter FFmpeg au PATH (Linux) :
-1. Extrayez les fichiers téléchargés dans un dossier, par exemple `~/ffmpeg`.
-2. Ouvrez le fichier `~/.bashrc` avec votre éditeur de texte préféré.
-3. Ajoutez la ligne suivante à la fin du fichier :
-```sh
-export PATH="$HOME/ffmpeg/bin:$PATH"
-```
-4. Sauvegardez le fichier et rechargez la configuration :
-```sh
-source ~/.bashrc
+- macOS:
+  - Avec Homebrew: brew install ffmpeg
+
+- Linux (Debian/Ubuntu):
+  - sudo apt update && sudo apt install -y ffmpeg
+
+Vérification:
+```bash
+ffmpeg -version
 ```
 
-## Utilisation
-Pour utiliser ce script, exécutez la commande suivante dans votre terminal :
-```sh
+---
+
+## ▶️ Utilisation
+
+Exécuter le script:
+```bash
 python youtube_download.py
 ```
 
-## Étapes pour utiliser le script :
-1. Entrez l'URL de la vidéo YouTube que vous souhaitez télécharger.
-2. Entrez le répertoire de téléchargement où vous souhaitez sauvegarder la vidéo. Par exemple :
-    - Windows: `C:\Users\votre_nom\Videos\` ou `C:\Users\votre_nom\Download\`
-    - Linux: `/home/votre_nom/Videos/` ou `/home/votre_nom/Téléchargements/`
-3. Sélectionnez le format de la vidéo à partir de la liste des formats disponibles.
-4. Le téléchargement commence et la vidéo est sauvegardée dans le répertoire spécifié.
+Étapes dans le terminal:
+1) Entrez l’URL de la vidéo YouTube
+2) Entrez le répertoire de téléchargement (exemples)
+   - Windows: C:\Users\votre_nom\Videos\ ou C:\Users\votre_nom\Downloads\
+   - Linux: /home/votre_nom/Videos/ ou /home/votre_nom/Téléchargements/
+   - macOS: /Users/votre_nom/Movies/ ou /Users/votre_nom/Downloads/
+3) Choisissez le format par numéro dans la liste
 
-### Exemple
-Voici un exemple de session d'utilisation du script :
->Entrez l'URL de la vidéo Youtube: `https://www.youtube.com/watch?v=example`  
->Entrez le dossier de téléchargement **Windows**: `C:\Users\votre_nom\Videos\` ou `C:\Users\votre_nom\Download\` **Linux**: `/home/votre_nom/Videos/` ou `/home/votre_nom/Téléchargements/`): `/home/user/Videos/`  
->Formats disponibles:
->1. 18 - mp4 - 360p - 30fps
->2. 22 - mp4 - 720p - 30fps
->3. 137 - mp4 - 1080p - 30fps
->4. 140 - m4a - audio only - 0fps  
->
->Entrez le numéro du format de la vidéo que vous voulez : 3  
->Téléchargement terminé!  
+Exemple de session:
+```text
+Entrez l'URL de la vidéo Youtube: https://www.youtube.com/watch?v=EXAMPLE
+Entrez le dossier de téléchargement 
+ (Windows: C:\Users\votre_nom\Videos\ ou C:\Users\votre_nom\Download\ 
+ Linux: /home/votre_nom/Videos/ ou /home/votre_nom/Téléchargements/): C:\Users\me\Videos\
+Formats disponibles:
+1. 18 - mp4 - 360p - 30fps
+2. 22 - mp4 - 720p - 30fps
+3. 137 - mp4 - 1080p - 30fps
+4. 251 - webm - audio only - 0fps
+Entrez le numéro du format de la vidéo que vous voulez : 2
+Téléchargement terminé!
+```
 
-Ne faites pas attention au format audio :
->4. 140 - m4a - audio only - 0fps
+Le script créera automatiquement un sous-dossier:
+- Cible finale: <dossier_saisi>/Youtube_Downloader
 
-Il se téléchargera tout seul. Laissez juste la magie opérée. ✨
+---
+
+## 🧠 Détails techniques
+
+- Liste des formats: le script agrège les formats fournis par yt-dlp, retient les résolutions courantes (144p, 240p, 360p, 480p, 720p, 1080p, 1440p, 2160p) et “audio only”, puis conserve le meilleur fps par résolution.
+- Téléchargement:
+  - Option yt-dlp: format = <format_id> + "+bestaudio/best"
+  - Fusion/encapsulation: merge_output_format = "mp4" (nécessite FFmpeg)
+  - Modèle de nom de fichier: %(title)s.%(ext)s
+- Fichier principal: youtube_download.py
+
+---
+
+## ❗ Dépannage
+
+- ffmpeg not found / impossible de trouver FFmpeg
+  - Assurez-vous que ffmpeg est installé et accessible dans votre PATH (voir section Installation).
+- SSL: CERTIFICATE_VERIFY_FAILED
+  - Mettez à jour certifi: pip install -U certifi
+- Erreur de permission (Permission denied)
+  - Vérifiez les droits d’écriture dans le répertoire de destination saisi.
+- Formats vides ou vidéo restreinte
+  - Certaines vidéos nécessitent des cookies/connexion; ce script n’inclut pas la gestion avancée (cookies, authentification).
+- Format invalide ou hors plage
+  - Entrez un numéro correspondant à la liste affichée.
+
+---
+
+## 🔒 Avertissement légal
+
+Respectez les conditions d’utilisation de YouTube et les lois applicables dans votre pays. Ne téléchargez que du contenu dont vous détenez les droits ou pour lequel vous avez une autorisation.
+
+---
+
+## 📁 Structure du projet (simple)
+
+```
+.
+├─ youtube_download.py
+└─ README.md
+```
+
+---
+
+## 🤝 Contributions
+
+Les suggestions d’amélioration sont bienvenues:
+- Ajout d’un requirements.txt
+- Gestion des cookies pour les vidéos restreintes
+- Téléchargements par lot (fournir un fichier d’URLs)
+- Sélection avancée des formats (bitrate audio, codec, etc.)
+- Emballage sous forme d’exécutable (PyInstaller)
+
+Proposition classique:
+1) Fork
+2) Branche: git checkout -b feat/ma-feature
+3) Commit: git commit -m "feat: description"
+4) PR: ouvrez une Pull Request
+
+---
+
+## 📜 Licence
+
+Aucune licence explicite trouvée dans le dépôt. Ajoutez un fichier LICENSE si nécessaire (MIT recommandé).
+
+---
+
+## 👤 Auteur
+
+- GitHub: @Okpeyemi
